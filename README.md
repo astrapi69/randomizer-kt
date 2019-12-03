@@ -1,2 +1,2 @@
 # randomizer-kt
-port of randomizer
+kotlin port of project randomizer
