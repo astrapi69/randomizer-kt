@@ -1,0 +1,47 @@
+
+allprojects {
+    group = 'de.alpharogroup'
+    version = '7.0-SNAPSHOT'
+}
+
+subprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'maven-publish'
+
+    repositories {
+        mavenLocal()
+        maven {
+            url = 'http://repo.maven.apache.org/maven2'
+        }
+    }
+
+    dependencies {
+        testCompile 'org.testng:testng:7.0.0'
+        testCompile 'junit:junit:4.12'
+    }
+
+    sourceCompatibility = '1.8'
+
+    task sourcesJar(type: Jar) {
+        archiveClassifier.set("sources")
+        from(sourceSets.main.allSource)
+    }
+
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                from(components.java)
+                artifact(sourcesJar)
+            }
+        }
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+
+    test {
+        useTestNG()
+    }
+}
