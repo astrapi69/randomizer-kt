@@ -27,14 +27,12 @@ package de.alpharogroup.random.address
 import de.alpharogroup.BaseTestCase
 import de.alpharogroup.random.util.PropertiesLoader
 import de.alpharogroup.string.StringExtensions
-import org.meanbean.test.BeanTestException
 import org.meanbean.test.BeanTester
 import org.testng.AssertJUnit
 import org.testng.annotations.AfterMethod
 import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
 import java.io.IOException
-import java.lang.reflect.InvocationTargetException
 
 /**
  * The unit test class for the class [RandomAddressExtensions].

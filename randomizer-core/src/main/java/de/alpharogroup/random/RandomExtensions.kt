@@ -121,7 +121,6 @@ class RandomExtensions {
                 } catch (e: ClassNotFoundException) {
                     return null
                 }
-
             }
             return null
         }

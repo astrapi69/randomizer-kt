@@ -6,3 +6,4 @@ rootProject.name = 'randomizer-kt'
 include(':randomizer-api')
 include(':randomizer-data')
 include(':randomizer-core')
+include(":random-kt-address")
