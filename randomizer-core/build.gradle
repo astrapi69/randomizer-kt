@@ -15,6 +15,22 @@ dependencies {
 repositories {
     mavenCentral()
 }
+
+apply plugin: "org.jetbrains.dokka"
+
+task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
+    outputFormat = "html"
+    outputDirectory = javadoc.destinationDir
+    inputs.dir "src/main/java"
+}
+
+task javadocJar(type: Jar) {
+    archiveClassifier.set("javadoc")
+    from javadoc.destinationDir
+}
+
+javadocJar.dependsOn dokkaJavadoc
+
 task sourcesJar(type: Jar) {
     archiveClassifier.set("sources")
     from(sourceSets.main.allSource)
@@ -28,9 +44,10 @@ publishing {
             artifactId = "${project.name}"
             from components.java
             artifact sourcesJar
+            artifact javadocJar
             pom {
                 name = "${project.name}"
-                description = "The target of this project is to create or generate random data as simple as possible."
+                description = "This project holds utility classes to create or generate random data"
                 url = "https://github.com/astrapi69/"+"${rootProject.name}"
                 organization {
                     name = "Alpha Ro Group UG (haftungsbeschrängt)"

@@ -17,7 +17,7 @@ apply plugin: "org.jetbrains.dokka"
 
 task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
     outputFormat = "html"
-    outputDirectory = "$buildDir/dokkaJavadoc"
+    outputDirectory = javadoc.destinationDir
     inputs.dir "src/main/java"
 }
 
@@ -25,6 +25,8 @@ task javadocJar(type: Jar) {
     archiveClassifier.set("javadoc")
     from javadoc.destinationDir
 }
+
+javadocJar.dependsOn dokkaJavadoc
 
 task sourcesJar(type: Jar) {
     archiveClassifier.set("sources")
@@ -42,7 +44,7 @@ publishing {
             artifact javadocJar
             pom {
                 name = "${project.name}"
-                description = "The target of this project is to create or generate random data as simple as possible."
+                description = "This project holds factory classes for create SecureRandom objects"
                 url = "https://github.com/astrapi69/"+"${rootProject.name}"
                 organization {
                     name = "Alpha Ro Group UG (haftungsbeschrängt)"
