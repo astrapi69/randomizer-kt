@@ -9,7 +9,7 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    compile project(":randomizer-core")
+    compile project(":random-kt-core")
     testCompile("de.alpharogroup:test-objects:$testObjectsVersion")
     testCompile("org.meanbean:meanbean:$meanbeanVersion")
     testCompile("de.alpharogroup:silly-strings:$sillyStringsVersion")

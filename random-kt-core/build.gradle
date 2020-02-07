@@ -1,8 +1,8 @@
 
 dependencies {
     compile "de.alpharogroup:vintage-time:$vintageTimeVersion"
-    compile project(":randomizer-api")
-    compile project(":randomizer-data")
+    compile project(":random-kt-api")
+    compile project(":random-kt-data")
     compile "de.alpharogroup:jobj-core:$jobjCoreVersion"
     compile "de.alpharogroup:silly-math:$sillyMathVersion"
     testCompile "de.alpharogroup:silly-beans:$sillyBeansVersion"
